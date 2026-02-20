@@ -1,0 +1,9 @@
+{
+	"name": "AzureDataFactorySwati",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "acba8171-05f2-4af3-8aa2-e970a6aaa754",
+		"tenantId": "5e4bc997-b396-4d2e-afc3-04e7667f99ab"
+	}
+}
