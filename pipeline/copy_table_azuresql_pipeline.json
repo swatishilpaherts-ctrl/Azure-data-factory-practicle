@@ -1,0 +1,9 @@
+{
+	"name": "copy_table_azuresql_pipeline",
+	"properties": {
+		"folder": {
+			"name": "UserCase2"
+		},
+		"annotations": []
+	}
+}
