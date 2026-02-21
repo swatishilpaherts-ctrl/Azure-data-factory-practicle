@@ -218,7 +218,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy data1",
+						"name": "copy-csv-data-source-destination",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
