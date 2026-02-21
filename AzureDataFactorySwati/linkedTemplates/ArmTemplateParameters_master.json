@@ -8,6 +8,30 @@
 		"AzureBlobStorage_LS_connectionString": {
 			"value": ""
 		},
+		"AzureSqlDatabase_Adventureworks_LS_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase_LS_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server": {
+			"value": "sql-swati.database.windows.net"
+		},
+		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_database": {
+			"value": "adventureworks"
+		},
+		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_userName": {
+			"value": "sg0226093"
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_server": {
+			"value": "sql-swati.database.windows.net"
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_database": {
+			"value": "azure-sql-swati"
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_userName": {
+			"value": "sg0226093"
+		},
 		"containerUri": {
 			"value": ""
 		},

@@ -11,6 +11,38 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage_LS'"
 		},
+		"AzureSqlDatabase_Adventureworks_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_Adventureworks_LS'"
+		},
+		"AzureSqlDatabase_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_LS'"
+		},
+		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql-swati.database.windows.net"
+		},
+		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "adventureworks"
+		},
+		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sg0226093"
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql-swati.database.windows.net"
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "azure-sql-swati"
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sg0226093"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -40,6 +72,30 @@
 					},
 					"AzureBlobStorage_LS_connectionString": {
 						"value": "[parameters('AzureBlobStorage_LS_connectionString')]"
+					},
+					"AzureSqlDatabase_Adventureworks_LS_password": {
+						"value": "[parameters('AzureSqlDatabase_Adventureworks_LS_password')]"
+					},
+					"AzureSqlDatabase_LS_password": {
+						"value": "[parameters('AzureSqlDatabase_LS_password')]"
+					},
+					"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase_LS_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase_LS_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase_LS_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase_LS_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase_LS_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase_LS_properties_typeProperties_userName')]"
 					}
 				}
 			},
