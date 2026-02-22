@@ -66,21 +66,13 @@
 										"value": "@concat('select * from ',item().col)",
 										"type": "Expression"
 									},
-									"queryTimeout": "02:00:00",
-									"isolationLevel": "ReadCommitted",
-									"partitionOption": {
-										"value": "@concat('select * from',item())",
-										"type": "Expression"
-									},
-									"partitionSettings": {
-										"partitionUpperBound": "",
-										"partitionLowerBound": ""
-									}
+									"queryTimeout": "02:00:00"
 								},
 								"sink": {
 									"type": "ParquetSink",
 									"storeSettings": {
-										"type": "AzureBlobStorageWriteSettings"
+										"type": "AzureBlobStorageWriteSettings",
+										"copyBehavior": "FlattenHierarchy"
 									},
 									"formatSettings": {
 										"type": "ParquetWriteSettings"
@@ -104,8 +96,14 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "Parquet_dynamic_table_copy_DS",
-									"type": "DatasetReference"
+									"referenceName": "dyamic_sink_ds",
+									"type": "DatasetReference",
+									"parameters": {
+										"FileName": {
+											"value": "@item().col",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
