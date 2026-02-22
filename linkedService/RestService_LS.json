@@ -1,15 +1,10 @@
 {
 	"name": "RestService_LS",
 	"properties": {
-		"parameters": {
-			"ResourcePath": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://jsonplaceholder.typicode.com/",
+			"url": "https://jsonplaceholder.typicode.com/users/",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		},
