@@ -1,6 +1,11 @@
 {
 	"name": "RestService_LS",
 	"properties": {
+		"parameters": {
+			"ResourcePath": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
