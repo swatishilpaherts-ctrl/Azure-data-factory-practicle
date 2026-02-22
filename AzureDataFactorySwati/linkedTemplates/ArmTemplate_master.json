@@ -43,6 +43,10 @@
 			"type": "string",
 			"defaultValue": "sg0226093"
 		},
+		"RestService_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jsonplaceholder.typicode.com/"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -96,6 +100,9 @@
 					},
 					"AzureSqlDatabase_LS_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase_LS_properties_typeProperties_userName')]"
+					},
+					"RestService_LS_properties_typeProperties_url": {
+						"value": "[parameters('RestService_LS_properties_typeProperties_url')]"
 					}
 				}
 			},
