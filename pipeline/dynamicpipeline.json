@@ -48,7 +48,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Copy data1",
+							"name": "Copy_table_list_data",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {

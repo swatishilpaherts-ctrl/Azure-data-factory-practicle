@@ -1,0 +1,19 @@
+{
+	"name": "Json_API_copied_data_sink_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "result"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
