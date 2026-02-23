@@ -45,7 +45,7 @@
 		},
 		"RestService_LS_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://jsonplaceholder.typicode.com/users/"
+			"defaultValue": "https://jsonplaceholder.typicode.com/"
 		},
 		"containerUri": {
 			"type": "string",

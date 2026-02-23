@@ -33,7 +33,7 @@
 			"value": "sg0226093"
 		},
 		"RestService_LS_properties_typeProperties_url": {
-			"value": "https://jsonplaceholder.typicode.com/users/"
+			"value": "https://jsonplaceholder.typicode.com/"
 		}
 	}
 }
