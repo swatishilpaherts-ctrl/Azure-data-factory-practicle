@@ -33,12 +33,140 @@
 							"type": "ParquetWriteSettings"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"name": "id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['name']"
+								},
+								"sink": {
+									"name": "name"
+								}
+							},
+							{
+								"source": {
+									"path": "$['username']"
+								},
+								"sink": {
+									"name": "username"
+								}
+							},
+							{
+								"source": {
+									"path": "$['email']"
+								},
+								"sink": {
+									"name": "email"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['street']"
+								},
+								"sink": {
+									"name": "street"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['suite']"
+								},
+								"sink": {
+									"name": "suite"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['city']"
+								},
+								"sink": {
+									"name": "city"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['zipcode']"
+								},
+								"sink": {
+									"name": "zipcode"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['geo']['lat']"
+								},
+								"sink": {
+									"name": "lat"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['geo']['lng']"
+								},
+								"sink": {
+									"name": "lng"
+								}
+							},
+							{
+								"source": {
+									"path": "$['phone']"
+								},
+								"sink": {
+									"name": "phone"
+								}
+							},
+							{
+								"source": {
+									"path": "$['website']"
+								},
+								"sink": {
+									"name": "website"
+								}
+							},
+							{
+								"source": {
+									"path": "$['company']['name']"
+								},
+								"sink": {
+									"name": "company_name"
+								}
+							},
+							{
+								"source": {
+									"path": "$['company']['catchPhrase']"
+								},
+								"sink": {
+									"name": "catchPhrase"
+								}
+							},
+							{
+								"source": {
+									"path": "$['company']['bs']"
+								},
+								"sink": {
+									"name": "bs"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "RestResource_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"RelativeURL": "users/"
+						}
 					}
 				],
 				"outputs": [
