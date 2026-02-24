@@ -1,0 +1,18 @@
+{
+	"name": "Binary_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "data_af5e9e3c-7cb0-40a9-92c2-d258635989f9_0c877289-5ffc-4b1b-b9d0-485eba810eff.parquet",
+				"container": "result"
+			}
+		}
+	}
+}
