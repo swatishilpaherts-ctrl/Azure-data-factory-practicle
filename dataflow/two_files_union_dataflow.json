@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "two_files_union_dataflow",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
