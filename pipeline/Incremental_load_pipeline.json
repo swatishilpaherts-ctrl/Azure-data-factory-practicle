@@ -1,0 +1,9 @@
+{
+	"name": "Incremental_load_pipeline",
+	"properties": {
+		"folder": {
+			"name": "UseCase7"
+		},
+		"annotations": []
+	}
+}
