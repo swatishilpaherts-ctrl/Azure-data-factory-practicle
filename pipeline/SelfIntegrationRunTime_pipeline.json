@@ -1,0 +1,9 @@
+{
+	"name": "SelfIntegrationRunTime_pipeline",
+	"properties": {
+		"folder": {
+			"name": "UseCase9"
+		},
+		"annotations": []
+	}
+}
