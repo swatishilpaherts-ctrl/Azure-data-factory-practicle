@@ -1,0 +1,12 @@
+{
+	"name": "AzureSqlTableWaterMarkLookup_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase_Adventureworks_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
