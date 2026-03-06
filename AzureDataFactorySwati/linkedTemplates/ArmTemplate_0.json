@@ -79,6 +79,16 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/default')]",
 			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
 			"apiVersion": "2018-06-01",
@@ -477,6 +487,120 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/MetadataDrivenCopyTask_8mb_ControlDS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase_Adventureworks_LS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "MetadataDrivenCopyTask_8mb_20260306"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "SalesLT",
+					"table": "MainControlTable_8mb"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase_Adventureworks_LS')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/MetadataDrivenCopyTask_8mb_DestinationDS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage_LS",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"cw_fileName": {
+						"type": "String"
+					},
+					"cw_folderPath": {
+						"type": "Object"
+					},
+					"cw_container": {
+						"type": "String"
+					}
+				},
+				"folder": {
+					"name": "MetadataDrivenCopyTask_8mb_20260306"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().cw_fileName",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@dataset().cw_folderPath",
+							"type": "Expression"
+						},
+						"container": {
+							"value": "@dataset().cw_container",
+							"type": "Expression"
+						}
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_LS')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/MetadataDrivenCopyTask_8mb_SourceDS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase_Adventureworks_LS",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"cw_schema": {
+						"type": "String"
+					},
+					"cw_table": {
+						"type": "String"
+					}
+				},
+				"folder": {
+					"name": "MetadataDrivenCopyTask_8mb_20260306"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": {
+						"value": "@dataset().cw_schema",
+						"type": "Expression"
+					},
+					"table": {
+						"value": "@dataset().cw_table",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase_Adventureworks_LS')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Parquet_DS')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -493,202 +617,6 @@
 						"container": "output"
 					},
 					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_LS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Parquet_dynamic_table_copy_DS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage_LS",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"container": "output"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_LS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/RestResource_DS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "RestService_LS",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"RelativeURL": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": {
-						"value": "@dataset().RelativeURL",
-						"type": "Expression"
-					}
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/RestService_LS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/copy_csv_ds')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage_LS",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "spotify-tracks-dataset.csv",
-						"container": "input"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Prop_0",
-						"type": "String"
-					},
-					{
-						"name": "Unnamed: 0",
-						"type": "String"
-					},
-					{
-						"name": "track_id",
-						"type": "String"
-					},
-					{
-						"name": "artists",
-						"type": "String"
-					},
-					{
-						"name": "album_name",
-						"type": "String"
-					},
-					{
-						"name": "track_name",
-						"type": "String"
-					},
-					{
-						"name": "popularity",
-						"type": "String"
-					},
-					{
-						"name": "duration_ms",
-						"type": "String"
-					},
-					{
-						"name": "explicit",
-						"type": "String"
-					},
-					{
-						"name": "danceability",
-						"type": "String"
-					},
-					{
-						"name": "energy",
-						"type": "String"
-					},
-					{
-						"name": "key",
-						"type": "String"
-					},
-					{
-						"name": "loudness",
-						"type": "String"
-					},
-					{
-						"name": "mode",
-						"type": "String"
-					},
-					{
-						"name": "speechiness",
-						"type": "String"
-					},
-					{
-						"name": "acousticness",
-						"type": "String"
-					},
-					{
-						"name": "instrumentalness",
-						"type": "String"
-					},
-					{
-						"name": "liveness",
-						"type": "String"
-					},
-					{
-						"name": "valence",
-						"type": "String"
-					},
-					{
-						"name": "tempo",
-						"type": "String"
-					},
-					{
-						"name": "time_signature",
-						"type": "String"
-					},
-					{
-						"name": "track_genre",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_LS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/copy_csv_ds_output')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage_LS",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"container": "output"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
 				},
 				"schema": []
 			},
