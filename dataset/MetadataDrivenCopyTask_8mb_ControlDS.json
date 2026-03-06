@@ -1,0 +1,19 @@
+{
+	"name": "MetadataDrivenCopyTask_8mb_ControlDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase_Adventureworks_LS",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "MetadataDrivenCopyTask_8mb_20260306"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SalesLT",
+			"table": "MainControlTable_8mb"
+		}
+	}
+}
