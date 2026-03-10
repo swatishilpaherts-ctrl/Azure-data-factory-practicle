@@ -14,6 +14,9 @@
 		"AzureSqlDatabase_LS_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase_advture_LS_password": {
+			"value": ""
+		},
 		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server": {
 			"value": "sql-swati.database.windows.net"
 		},
@@ -30,6 +33,15 @@
 			"value": "azure-sql-swati"
 		},
 		"AzureSqlDatabase_LS_properties_typeProperties_userName": {
+			"value": "sg0226093"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_server": {
+			"value": "sql-swati.database.windows.net"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_database": {
+			"value": "sql-swati"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_userName": {
 			"value": "sg0226093"
 		},
 		"RestService_LS_properties_typeProperties_url": {

@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_LS'"
 		},
+		"AzureSqlDatabase_advture_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_advture_LS'"
+		},
 		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "sql-swati.database.windows.net"
@@ -40,6 +44,18 @@
 			"defaultValue": "azure-sql-swati"
 		},
 		"AzureSqlDatabase_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sg0226093"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql-swati.database.windows.net"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sql-swati"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "sg0226093"
 		},
@@ -83,6 +99,9 @@
 					"AzureSqlDatabase_LS_password": {
 						"value": "[parameters('AzureSqlDatabase_LS_password')]"
 					},
+					"AzureSqlDatabase_advture_LS_password": {
+						"value": "[parameters('AzureSqlDatabase_advture_LS_password')]"
+					},
 					"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server')]"
 					},
@@ -100,6 +119,15 @@
 					},
 					"AzureSqlDatabase_LS_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase_LS_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase_advture_LS_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase_advture_LS_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase_advture_LS_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase_advture_LS_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase_advture_LS_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase_advture_LS_properties_typeProperties_userName')]"
 					},
 					"RestService_LS_properties_typeProperties_url": {
 						"value": "[parameters('RestService_LS_properties_typeProperties_url')]"
@@ -126,6 +154,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'AzureDataFactorySwati_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "AzureDataFactorySwati_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'AzureDataFactorySwati_ArmTemplate_1')]"
 			]
 		}
 	]

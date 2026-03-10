@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_LS'"
 		},
+		"AzureSqlDatabase_advture_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_advture_LS'"
+		},
 		"AzureSqlDatabase_Adventureworks_LS_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "sql-swati.database.windows.net"
@@ -40,6 +44,18 @@
 			"defaultValue": "azure-sql-swati"
 		},
 		"AzureSqlDatabase_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sg0226093"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql-swati.database.windows.net"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sql-swati"
+		},
+		"AzureSqlDatabase_advture_LS_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "sg0226093"
 		},
@@ -2372,6 +2388,34 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase_advture_LS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase_advture_LS_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase_advture_LS_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase_advture_LS_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('AzureSqlDatabase_advture_LS_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/RestService_LS')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -2553,6 +2597,27 @@
 			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
 			"apiVersion": "2018-06-01",
 			"properties": {},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime2')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "AutoResolve",
+						"dataFlowProperties": {
+							"computeType": "General",
+							"coreCount": 8,
+							"timeToLive": 10,
+							"cleanup": false,
+							"customProperties": []
+						}
+					}
+				}
+			},
 			"dependsOn": []
 		}
 	]
