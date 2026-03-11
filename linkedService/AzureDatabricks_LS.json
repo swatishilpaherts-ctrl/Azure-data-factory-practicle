@@ -1,0 +1,16 @@
+{
+	"name": "AzureDatabricks_LS",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-7405617096129947.7.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/31eb4b13-eecd-467d-9928-0c162a597225/resourceGroups/Swati_RG/providers/Microsoft.Databricks/workspaces/databrics_swati_shilpa"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
